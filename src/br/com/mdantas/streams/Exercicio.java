@@ -8,12 +8,17 @@ import java.util.stream.Collectors;
  */
 public class Exercicio {
 
+    public List<Pessoa> filtrarPessoasPorSexoFeminino(List<Pessoa> lista) {
+        return lista.stream()
+                .filter(pessoa -> pessoa.getSexo().equals("Feminino"))
+                .collect(Collectors.toList());
+    }
+
     public static void main(String[] args) {
         List<Pessoa> lista = new Pessoa().populaPessoas();
+        Exercicio exercicio = new Exercicio();
 
-        lista.stream()
-                .filter(pessoa -> pessoa.getSexo().equals("Feminino"))
-                .collect(Collectors.toList())
+        exercicio.filtrarPessoasPorSexoFeminino(lista)
                 .forEach(System.out::println);
     }
 }
